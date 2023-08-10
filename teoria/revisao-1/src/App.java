@@ -7,10 +7,11 @@ import main.java.questao_4.Questao4;
 
 public class App {
     private static int CREATED_CLASSES = 4;
+
     public static void main(String[] args) throws Exception {
         while (true) {
             showMenuHeader();
-            int userOption = Utils.readInt("Escolha uma opcao: ");
+            int userOption = Utils.readInt();
             userOption = checkUserOption(userOption);
             if (userOption > 0) {
                 executeQuestion(userOption);
@@ -35,17 +36,60 @@ public class App {
             System.out.println((i + 1) + " - Questao " + (i + 1));
         }
         System.out.println(CREATED_CLASSES + 1 + " - Sair");
+        System.out.print("Escolha uma opcao: ");
     }
 
     private static void executeQuestion(int userOption) {
         switch (userOption) {
             case 1:
                 Questao1.enunciado();
-                int []entry = Utils.readIntArray();;
-                Questao1.execute(entry);
-                Questao1.showResult();
+                int[] entry1 = Utils.readIntArray();
+                int[] result1 = Questao1.execute(entry1);
+                System.out.print("[");
+                for (int i = 0; i < result1.length; i++) {
+                    if (i != result1.length - 1) {
+                        System.out.print(result1[i] + ", ");
+                        continue;
+                    }
+                    System.out.println(result1[i] + "]");
+                }
                 break;
-        
+            case 2:
+                Questao2.enunciado();
+                int[] entry2 = Utils.readIntArray();
+                int[] result2 = Questao2.execute(entry2);
+                System.out.print("[");
+                for (int i = 0; i < result2.length; i++) {
+                    if (i != result2.length - 1) {
+                        System.out.print(result2[i] + ", ");
+                        continue;
+                    }
+                    System.out.println(result2[i] + "]");
+                }
+                break;
+            case 3:
+                Questao3.enunciado();
+                System.out.print("Digite o tamanho horizontal: ");
+                int x = Utils.readInt();
+                System.out.print("Digite o tamanho vertical: ");
+                int y = Utils.readInt();
+
+                System.out.println(Questao3.execute(x, y));
+                break;
+
+            case 4:
+                Questao4.enunciado();
+                String input = "";
+                Boolean hasLine = false;
+                while (true) {
+                    System.out.print("Digite uma frase: ");
+                    input = Utils.readString();
+                    hasLine = Questao4.execute(input);
+                    if(!hasLine){
+                        break;
+                    }
+                }
+
             default:
                 break;
         }

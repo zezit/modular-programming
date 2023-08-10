@@ -9,10 +9,9 @@ public class Utils {
         return number % 2 == 0;
     }
 
-    public static int readInt(String string) {
+    public static int readInt() {
         Scanner scanner = new Scanner(System.in);
         int option = scanner.nextInt();
-        scanner.close();
         return option;
     }
 
@@ -20,28 +19,30 @@ public class Utils {
         Scanner scanner = new Scanner(System.in);
         List<Integer> numeros = new ArrayList<>();
         System.out.println("Digite números inteiros (digite 'E' para sair):");
-        while (scanner.hasNextInt()) {
-            numeros.add(scanner.nextInt());
+
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equals("E")) {
+                break;
+            }
+            try {
+                numeros.add(Integer.parseInt(input));
+            } catch (Exception e) {
+                System.out.println("Digite um número válido");
+            }
         }
-        // while (true) {
-        //     String input = scanner.nextLine();
-        //     if (input.equals("E")) {
-        //         break;
-        //     }
-        //     try {
-        //         numeros.add(Integer.parseInt(input));
-        //     } catch (Exception e) {
-        //         System.out.println("Digite um número válido");
-        //     }
-        // }
 
         int[] result = new int[numeros.size()];
         for (int i = 0; i < numeros.size(); i++) {
             result[i] = numeros.get(i);
         }
 
-        scanner.close();
-
         return result;
+    }
+
+    public static String readString() {
+        Scanner scanner = new Scanner(System.in);
+        String option = scanner.nextLine();
+        return option;
     }
 }

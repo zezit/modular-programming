@@ -34,7 +34,4 @@ public class Questao1 {
         System.out.println("deve ficar 42-23-16-15-8-4 após a execução. Escreva um programa que");
         System.out.println("verifique a correção do seu código");
     }
-
-    public static void showResult() {
-    }
 }
