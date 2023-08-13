@@ -6,8 +6,15 @@ package main.java.questao_4;
  * assim fazendo até que o usuário digite a palavra “fim”.
  */
 public class Questao4 {
-    public static Boolean execute(String input) {
+    private String result = "";
+
+    public String getResult() {
+        return result;
+    }
+
+    public Boolean execute(String input) {
         if (input.equals("fim")) {
+            this.result = null;
             return false;
         }
 
@@ -16,6 +23,7 @@ public class Questao4 {
             result += input.charAt(i);
         }
         System.out.println(result);
+        this.result = result;
         return true;
     }
 
@@ -24,4 +32,9 @@ public class Questao4 {
         System.out.println("Após mostrar a primeira frase, o programa deve ler e imprimir outra,");
         System.out.println("assim fazendo até que o usuário digite a palavra “fim”.");
     }
+
+    public static Object result() {
+        return null;
+    }
+
 }

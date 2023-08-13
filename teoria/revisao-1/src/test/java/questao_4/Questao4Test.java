@@ -1,5 +1,10 @@
 package test.java.questao_4;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import main.java.questao_4.Questao4;
@@ -10,19 +15,22 @@ public class Questao4Test {
         String input = "Hello World";
         String expected = "dlroW olleH";
 
-        String result = Questao4.execute(input);
+        Questao4 sut = new Questao4();
+        Boolean result = sut.execute(input);
 
-        assert result.equals(expected);
+        assertTrue(result);
+        assertEquals(expected, sut.getResult());
     }
 
     @Test
-    public void it_should_return_null_if_string_is_fim(){
+    public void it_should_return_null_if_string_is_fim() {
         String input = "fim";
-        String expected = null;
 
-        String result = Questao4.execute(input);
+        Questao4 sut = new Questao4();
+        Boolean result = sut.execute(input);
 
-        assert result == expected;
+        assertNull("Deve ser null com a string 'fim'", sut.getResult());
+        assertFalse("Deve retornar falso com a string 'fim'", result);
     }
 
 }

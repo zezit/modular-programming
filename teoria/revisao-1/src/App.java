@@ -84,12 +84,12 @@ public class App {
                 while (true) {
                     System.out.print("Digite uma frase: ");
                     input = Utils.readString();
-                    hasLine = Questao4.execute(input);
+                    Questao4 questao_4 = new Questao4();
+                    hasLine = questao_4.execute(input);
                     if(!hasLine){
                         break;
                     }
                 }
-
             default:
                 break;
         }
