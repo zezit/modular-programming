@@ -1,5 +1,4 @@
 import main.java.utils.Utils;
-
 import main.java.questao_1.Questao1;
 import main.java.questao_2.Questao2;
 import main.java.questao_3.Questao3;
@@ -13,7 +12,7 @@ public class App {
             showMenuHeader();
             int userOption = Utils.readInt();
             userOption = checkUserOption(userOption);
-            if (userOption > 0) {
+            if (userOption >= 0) {
                 executeQuestion(userOption);
             }
         }
@@ -22,7 +21,7 @@ public class App {
     private static int checkUserOption(int userOption) {
         if (userOption == CREATED_CLASSES + 1) {
             System.exit(0);
-        } else if (userOption > CREATED_CLASSES + 1 || userOption < 1) {
+        } else if (userOption > CREATED_CLASSES + 1 || userOption < 0) {
             System.out.println("Opcao invalida!");
             return -1;
         }
@@ -32,6 +31,8 @@ public class App {
     private static void showMenuHeader() {
         System.out.println("Bem vindo ao programa de exercicios de revisão!");
         System.out.println("Escolha uma das opcoes abaixo:");
+        System.out.println(0 + " - Rodar todos os testes");
+
         for (int i = 0; i < CREATED_CLASSES; i++) {
             System.out.println((i + 1) + " - Questao " + (i + 1));
         }
@@ -41,6 +42,9 @@ public class App {
 
     private static void executeQuestion(int userOption) {
         switch (userOption) {
+            case 0:
+                TestRunner.main();
+                break;
             case 1:
                 Questao1.enunciado();
                 int[] entry1 = Utils.readIntArray();
@@ -86,7 +90,7 @@ public class App {
                     input = Utils.readString();
                     Questao4 questao_4 = new Questao4();
                     hasLine = questao_4.execute(input);
-                    if(!hasLine){
+                    if (!hasLine) {
                         break;
                     }
                 }
