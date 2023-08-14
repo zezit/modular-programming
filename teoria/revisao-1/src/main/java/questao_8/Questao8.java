@@ -3,6 +3,11 @@ package main.java.questao_8;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * Escreva um método que verifique se uma data é válida, a partir de um dado
+ * recebido do usuário no formato DD/MM/AAAA. Se a data for inválida, informe ao
+ * usuário onde está o erro.
+ */
 public class Questao8 {
     private String errorMessage;
     private Boolean validation;
@@ -16,6 +21,10 @@ public class Questao8 {
     }
 
     public static Questao8 isValid(String date) {
+        if (!date.matches("([0-9]{2})/([0-9]{2})/([0-9]{4})")) {
+            return new Questao8(false, "Formato deve ser DD/MM/AAAA", date);
+        }
+
         if (date == null || date.equals("")) {
             return new Questao8(false, "É necessário fornecer uma data", date);
         }
@@ -123,5 +132,11 @@ public class Questao8 {
 
     public int getYear() {
         return this.year;
+    }
+
+    public static void enunciado() {
+        System.out.println("Escreva um método que verifique se uma data é válida, a partir de um dado\n"
+                + "recebido do usuário no formato DD/MM/AAAA. Se a data for inválida, informe ao\n"
+                + "usuário onde está o erro.");
     }
 }

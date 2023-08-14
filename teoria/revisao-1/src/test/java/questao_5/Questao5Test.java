@@ -62,7 +62,7 @@ public class Questao5Test {
         int inputMinutesAvaible = 32;
         int inputClasses = 5;
 
-        String expectedString = "Você deverá dedicar 387 por dia para cada uma das matérias. Com 13 minutos de intervalo entre elas";
+        String expectedString = "Você deverá dedicar 387 minutos por dia para cada uma das matérias. Com 13 minutos de intervalo entre elas";
 
         Questao5 sut = new Questao5();
         String resultString = sut.execute(inputHoursAvaible, inputMinutesAvaible,
@@ -89,4 +89,6 @@ public class Questao5Test {
 
         new Questao5().execute(inputHours, inputMinutes, inputClasses);
     }
+
+    // TODO - create test to verify it the input does not trespass 24 hours
 }

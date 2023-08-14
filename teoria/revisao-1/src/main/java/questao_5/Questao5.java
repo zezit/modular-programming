@@ -32,16 +32,13 @@ public class Questao5 {
         this.interval = interval.intValue();
         double timeToStudyInMinutes = totalMinutes - this.interval
                 * (double) inputClasses;
-        System.out.println(timeToStudyInMinutes);
         this.minutesToStudy = new BigDecimal(timeToStudyInMinutes).setScale(2, RoundingMode.HALF_UP).intValue();
-        System.out.println(this.minutesToStudy);
         this.hoursToStudy = new BigDecimal(timeToStudyInMinutes).setScale(2, RoundingMode.HALF_UP).doubleValue() / 60;
-        System.out.println(this.hoursToStudy);
         return this.getPrintResult();
     }
 
     private String getPrintResult() {
-        return "Você deverá dedicar " + this.minutesToStudy + " por dia para cada uma das matérias. " +
+        return "Você deverá dedicar " + this.minutesToStudy + " minutos por dia para cada uma das matérias. " +
                 "Com " + this.interval + " minutos de intervalo entre elas";
     }
 

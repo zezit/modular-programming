@@ -19,4 +19,12 @@ public class Questao7 {
 
         return ret;
     }
+
+    public static void enunciado() {
+        System.out.println("Um algoritmo para multiplicação rápida por 11 de números de 2 dígitos\n" +
+                "funciona assim: para multiplicar 81 x 11, some os dígitos do número (8 + 1 =\n" +
+                "9) e insira o resultado entre os dígitos (891). Se a soma der maior que 9,\n" +
+                "incremente o dígito da esquerda (vai-um): 56 x 11 = 616. Escreva um programa\n" +
+                "que efetue multiplicações por 11 usando este algoritmo.");
+    }
 }

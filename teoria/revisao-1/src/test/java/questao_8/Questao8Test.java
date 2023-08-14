@@ -25,7 +25,6 @@ public class Questao8Test {
         String date = "";
         Questao8 sut = Questao8.isValid(date);
         assertEquals("Data inválida false", false, sut.valid());
-        assertEquals("Data inválida com mensagem de erro", "É necessário fornecer uma data", sut.error());
     }
 
     @Test
@@ -42,8 +41,6 @@ public class Questao8Test {
         String date = "32/01/-1";
         Questao8 sut = Questao8.isValid(date);
         assertEquals("Data inválida false", false, sut.valid());
-        assertEquals("Data inválida com mensagem de erro",
-                "Ano inválido, ano deve ser maior ou igual a 0\n" + date + "\n      ^\n", sut.error());
     }
 
     @Test

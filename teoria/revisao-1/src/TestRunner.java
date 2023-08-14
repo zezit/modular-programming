@@ -11,6 +11,8 @@ import test.java.questao_6.Questao6Test;
 import test.java.questao_7.Questao7Test;
 import test.java.questao_8.Questao8Test;
 import test.java.questao_9.Questao9Test;
+import test.java.questao_10.Questao10Test;
+import test.java.questao_11.Questao11Test;
 
 public class TestRunner {
     public static void main() {
@@ -23,6 +25,8 @@ public class TestRunner {
         Result result7 = JUnitCore.runClasses(Questao7Test.class);
         Result result8 = JUnitCore.runClasses(Questao8Test.class);
         Result result9 = JUnitCore.runClasses(Questao9Test.class);
+        Result result10 = JUnitCore.runClasses(Questao10Test.class);
+        Result result11 = JUnitCore.runClasses(Questao11Test.class);
 
         imprimirFalhas(result1);
         imprimirFalhas(result2);
@@ -33,15 +37,17 @@ public class TestRunner {
         imprimirFalhas(result7);
         imprimirFalhas(result8);
         imprimirFalhas(result9);
+        imprimirFalhas(result10);
+        imprimirFalhas(result11);
 
         boolean todosSucesso = result1.wasSuccessful() && result2.wasSuccessful() &&
                 result3.wasSuccessful() && result4.wasSuccessful() &&
                 result5.wasSuccessful() && result6.wasSuccessful() &&
                 result7.wasSuccessful() && result8.wasSuccessful() &&
-                result9.wasSuccessful();
+                result9.wasSuccessful() && result10.wasSuccessful();
 
         String resultString = todosSucesso ? "sim" : "não";
-        
+
         System.out.println("Todos os testes foram bem-sucedidos? " + resultString);
     }
 

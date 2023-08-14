@@ -10,7 +10,6 @@ package main.java.questao_6;
  * prêmios da loteria federal e retorna o número vencedor da organização.
  */
 public class Questao6 {
-
     private int lastAward;
     private int firstAward;
 
@@ -21,9 +20,7 @@ public class Questao6 {
 
     public int execute() {
         int result = this.getFirstThreeDigits();
-        System.out.println(result);
         result += this.getLastThreeDigits();
-        System.out.println(result);
 
         return result;
     }
@@ -31,21 +28,17 @@ public class Questao6 {
     public int getFirstThreeDigits() {
         int digits = numberOfDigits(this.lastAward);
         if (digits < 4) {
-            System.out.println(this.lastAward * 1000);
             return this.lastAward * 1000;
         }
         int newValue = this.lastAward / (int) Math.pow(10, digits - 3);
-        System.out.println((int) (1000 * (long) newValue / (int) Math.pow(10, digits - digits)));
         return (int) (1000 * (long) newValue / (int) Math.pow(10, digits - digits));
     }
 
     public int getLastThreeDigits() {
         int digits = numberOfDigits(this.firstAward);
         if (digits < 4) {
-            System.out.println(this.firstAward);
             return this.firstAward;
         }
-        System.out.println((double) this.firstAward % 1000);
         return (int) ((double) this.firstAward % 1000);
     }
 

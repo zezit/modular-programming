@@ -43,4 +43,6 @@ public class Questao7Test {
 
         assertEquals("Deve multiplicar corretamente 99 por 11", expected, result);
     }
+
+    // TODO - return error when value is bigger than 99 or less than 10
 }
