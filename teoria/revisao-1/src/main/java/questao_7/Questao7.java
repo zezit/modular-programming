@@ -8,7 +8,11 @@ package main.java.questao_7;
 * que efetue multiplicações por 11 usando este algoritmo.
 */
 public class Questao7 {
-    public static int execute(int input) {
+    public static int execute(int input) throws IllegalArgumentException {
+        if (input < 10 || input > 99) {
+            throw new IllegalArgumentException("input should be between 10 and 99");
+        }
+        
         int left = input / 10;
         int right = input % 10;
 

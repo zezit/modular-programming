@@ -12,6 +12,7 @@ import java.math.RoundingMode;
  * como ele deve organizar seu plano de estudos.
  */
 public class Questao5 {
+    private static final int MINUTES_IN_DAY = 24 * 60;
     private double hoursToStudy = 0;
     private int minutesToStudy = 0;
     private int interval = 0;
@@ -27,11 +28,18 @@ public class Questao5 {
         }
 
         double totalMinutes = (double) inputHoursAvaible * 60 + inputMinutesAvaible;
+
+        if (totalMinutes > MINUTES_IN_DAY) {
+            throw new IllegalArgumentException("Total time should be less than 24 hours");
+        }
+
         double dividedTimeInMinutes = totalMinutes / inputClasses;
-        BigDecimal interval = new BigDecimal(dividedTimeInMinutes * 0.15).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal interval = new BigDecimal(0);
+        if (totalMinutes != MINUTES_IN_DAY) {
+            interval = new BigDecimal(dividedTimeInMinutes * 0.15).setScale(2, RoundingMode.HALF_UP);
+        }
         this.interval = interval.intValue();
-        double timeToStudyInMinutes = totalMinutes - this.interval
-                * (double) inputClasses;
+        double timeToStudyInMinutes = totalMinutes - this.interval * (double) inputClasses;
         this.minutesToStudy = new BigDecimal(timeToStudyInMinutes).setScale(2, RoundingMode.HALF_UP).intValue();
         this.hoursToStudy = new BigDecimal(timeToStudyInMinutes).setScale(2, RoundingMode.HALF_UP).doubleValue() / 60;
         return this.getPrintResult();

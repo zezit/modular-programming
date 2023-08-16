@@ -72,6 +72,37 @@ public class Questao5Test {
                 resultString);
     }
 
+    @Test
+    public void the_sum_of_study_time_with_interval_should_be_less_than_24_hours() {
+        int inputHoursAvaible = 24;
+        int inputMinutesAvaible = 0;
+        int inputClasses = 11;
+
+        Questao5 sut = new Questao5();
+        sut.execute(inputHoursAvaible, inputMinutesAvaible, inputClasses);
+        int resultHours = sut.getMinutesToStudy();
+        int resultInterval = sut.getInterval();
+
+        int resultTotalDayTimeMinutes = resultHours + inputClasses * resultInterval;
+
+        assertEquals("A soma do tempo de estudo com o intervalo deve ser menor que 24 horas", 24 * 60,
+                resultTotalDayTimeMinutes);
+    }
+
+    @Test
+    public void the_interval_should_be_zero_when_the_sum_of_study_time_is_equal_to_1440() {
+        int inputHoursAvaible = 22;
+        int inputMinutesAvaible = 120;
+        int inputClasses = 12;
+
+        Questao5 sut = new Questao5();
+        sut.execute(inputHoursAvaible, inputMinutesAvaible, inputClasses);
+        int resultInterval = sut.getInterval();
+
+        assertEquals("O intervalo deve ser zero quando a soma do tempo de estudo for igual a 1440",
+                0, resultInterval);
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void it_should_throws_if_classes_is_zero_or_less() {
         int inputHours = 1231;
@@ -90,5 +121,12 @@ public class Questao5Test {
         new Questao5().execute(inputHours, inputMinutes, inputClasses);
     }
 
-    // TODO - create test to verify it the input does not trespass 24 hours
+    @Test(expected = IllegalArgumentException.class)
+    public void it_should_throws_if_total_time_is_greater_than_24_hours() {
+        int inputHours = 23;
+        int inputMinutes = 125;
+        int inputClasses = 10;
+
+        new Questao5().execute(inputHours, inputMinutes, inputClasses);
+    }
 }

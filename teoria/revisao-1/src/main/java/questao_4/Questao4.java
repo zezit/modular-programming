@@ -22,7 +22,6 @@ public class Questao4 {
         for (int i = input.length() - 1; i >= 0; i--) {
             result += input.charAt(i);
         }
-        System.out.println(result);
         this.result = result;
         return true;
     }

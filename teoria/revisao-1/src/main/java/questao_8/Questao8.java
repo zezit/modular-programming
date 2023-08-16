@@ -20,7 +20,7 @@ public class Questao8 {
         this.validation = valid;
     }
 
-    public static Questao8 isValid(String date) {
+    public static Questao8 isValid(String date) throws UnsupportedOperationException{
         if (!date.matches("([0-9]{2})/([0-9]{2})/([0-9]{4})")) {
             return new Questao8(false, "Formato deve ser DD/MM/AAAA", date);
         }

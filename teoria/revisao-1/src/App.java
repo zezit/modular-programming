@@ -17,9 +17,18 @@ import main.java.questao_11.Questao11;
 import main.java.questao_12.Questao12;
 
 public class App {
-    private static final String QUESTION10_FILE_NAME = "C:\\coding\\modular-programming\\teoria\\revisao-1\\src\\mock\\questao10.txt";
-    private static final String QUESTION11_FILE_NAME = "C:\\coding\\modular-programming\\teoria\\revisao-1\\src\\mock\\questao11.txt";
-    private static final String QUESTION12_FILE_NAME = "C:\\coding\\modular-programming\\teoria\\revisao-1\\src\\mock\\questao12.txt";
+    // windows path
+    // private static final String QUESTION10_FILE_NAME =
+    // "C:\\coding\\modular-programming\\teoria\\revisao-1\\src\\mock\\questao10.txt";
+    // private static final String QUESTION11_FILE_NAME =
+    // "C:\\coding\\modular-programming\\teoria\\revisao-1\\src\\mock\\questao11.txt";
+    // private static final String QUESTION12_FILE_NAME =
+    // "C:\\coding\\modular-programming\\teoria\\revisao-1\\src\\mock\\questao12.txt";
+
+    // linux path
+    private static final String QUESTION10_FILE_NAME = "/home/jose/coding/modular-programming/teoria/revisao-1/src/mock/questao10.txt";
+    private static final String QUESTION11_FILE_NAME = "/home/jose/coding/modular-programming/teoria/revisao-1/src/mock/questao11.txt";
+    private static final String QUESTION12_FILE_NAME = "/home/jose/coding/modular-programming/teoria/revisao-1/src/mock/questao12.txt";
 
     private static int CREATED_CLASSES = 12;
 
@@ -47,7 +56,7 @@ public class App {
     private static void showMenuHeader() {
         System.out.println("Exercicios de revisão");
         System.out.println("Escolha uma das opcoes abaixo:");
-        System.out.println(0 + " - Rodar todos os testes");
+        // System.out.println(0 + " - Rodar todos os testes");
 
         for (int i = 0; i < CREATED_CLASSES; i++) {
             System.out.println((i + 1) + " - Questao " + (i + 1));
@@ -58,9 +67,9 @@ public class App {
 
     private static void executeQuestion(int userOption) {
         switch (userOption) {
-            case 0:
-                TestRunner.main();
-                break;
+            // case 0:
+            // TestRunner.main(null);
+            // break;
             case 1:
                 Questao1.enunciado();
                 int[] entry1 = Utils.readIntArray();
@@ -119,7 +128,7 @@ public class App {
                 try {
                     inputClasses = Integer.parseInt(Utils.readString());
                 } catch (Exception e) {
-                    System.out.println("Valor inválido, recomece");
+                    System.out.println("Valor inválido, recomece [ERROR: " + e.getMessage() + "]");
                     break;
                 }
 
@@ -127,7 +136,7 @@ public class App {
                 try {
                     inputHours = Integer.parseInt(Utils.readString());
                 } catch (Exception e) {
-                    System.out.println("Valor inválido, recomece");
+                    System.out.println("Valor inválido, recomece [ERROR: " + e.getMessage() + "]");
                     break;
                 }
 
@@ -135,13 +144,18 @@ public class App {
                 try {
                     inputMinutes = Integer.parseInt(Utils.readString());
                 } catch (Exception e) {
-                    System.out.println("Valor inválido, recomece");
+                    System.out.println("Valor inválido, recomece [ERROR: " + e.getMessage() + "]");
                     break;
                 }
 
                 Questao5 questao5 = new Questao5();
-                String result = questao5.execute(inputHours, inputMinutes, inputClasses);
-                System.out.println(result);
+                try {
+                    String result = questao5.execute(inputHours, inputMinutes, inputClasses);
+                    System.out.println(result);
+                } catch (Exception e) {
+                    System.out.println("Valor inválido, recomece. ERROR[" + e.getMessage() + "]");
+                    break;
+                }
                 break;
             case 6:
                 int input1;
@@ -182,8 +196,13 @@ public class App {
                     break;
                 }
 
-                int resultQuestao7 = Questao7.execute(numberInput);
-                System.out.println("Resultado da multiplicação: " + resultQuestao7);
+                try {
+                    int resultQuestao7 = Questao7.execute(numberInput);
+                    System.out.println("Resultado da multiplicação: " + resultQuestao7);
+                } catch (Exception e) {
+                    System.out.println("Valor inválido, recomece - ERROR[" + e.getMessage() + "]");
+                    break;
+                }
                 break;
             case 8:
                 String inputDate = "";

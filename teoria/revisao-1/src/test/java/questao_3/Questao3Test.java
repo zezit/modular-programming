@@ -11,7 +11,6 @@ public class Questao3Test {
     public void it_should_print_a_rectangle() {
         String expectedString = "XXXXX\nX   X\nXXXXX\n";
         String result = Questao3.execute(5, 3);
-        System.out.println(result);
 
         assertEquals("deve imprimir um retangulo 5x3", expectedString, result);
     }
@@ -21,7 +20,6 @@ public class Questao3Test {
     public void it_should_print_void() {
         String expectedString = "";
         String result = Questao3.execute(0, 0);
-        System.out.println(result);
 
         assertEquals("deve imprimir nada", expectedString, result);
     }

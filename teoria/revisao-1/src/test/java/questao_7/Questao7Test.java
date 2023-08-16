@@ -44,5 +44,10 @@ public class Questao7Test {
         assertEquals("Deve multiplicar corretamente 99 por 11", expected, result);
     }
 
-    // TODO - return error when value is bigger than 99 or less than 10
+    @Test(expected = IllegalArgumentException.class)
+    public void it_should_throws_if_input_is_bigger_than_99_or_less_than_10() {
+        int input = 100;
+
+        int result = Questao7.execute(input);
+    }
 }
