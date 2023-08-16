@@ -43,7 +43,7 @@ public class Questao8 {
             return new Questao8(false, "Dia inválido, dia deve estar entre 1 e 31\n" + date + "\n    ^\n", date);
         }
 
-        String validation = validDayByMonth(dateMap);
+        String validation = j(dateMap);
         if (!validation.equals("")) {
             return new Questao8(false, validation + "\n" + date + "\n ^\n", date);
         }
@@ -59,7 +59,7 @@ public class Questao8 {
         this.year = dateSplited.get("ano").intValue();
     }
 
-    private static String validDayByMonth(Map<String, Number> dateMap) {
+    private static String j(Map<String, Number> dateMap) {
         Number month = dateMap.get("mes");
         Number day = dateMap.get("dia");
         Number year = dateMap.get("ano");

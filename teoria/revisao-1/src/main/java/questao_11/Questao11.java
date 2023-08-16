@@ -54,7 +54,8 @@ public class Questao11 extends Questao8 {
     public void run() throws FileNotFoundException {
         if (this.file != null) {
             int numberOfDates = Integer.parseInt(this.file.ler());
-            while (numberOfDates > 0) {
+            int count = numberOfDates;
+            while (count > 0) {
                 try {
                     String date = this.file.ler();
                     Questao8 questao8 = Questao8.isValid(date);
@@ -63,8 +64,12 @@ public class Questao11 extends Questao8 {
                         this.stringArraysOut.add("Data válida");
                     } else {
                         this.stringArraysIn.add(date);
-                        this.stringArraysOut.add(questao8.error());
+                        this.stringArraysOut.add(
+                                "Erro na linha: " +
+                                        (numberOfDates + 2 - count) + "\n" +
+                                        questao8.error());
                     }
+                    count--;
                 } catch (Exception e) {
                     System.out
                             .println("Invalid input " +
@@ -81,11 +86,9 @@ public class Questao11 extends Questao8 {
     }
 
     public void showReadingResult() {
-        for (String intArray : stringArraysOut) {
-            System.out.println("Input: " + this.stringArraysIn
-                    .get(stringArraysOut.indexOf(intArray) + 1));
-            System.out.println("Output: " + this.stringArraysOut
-                    .get(stringArraysOut.indexOf(intArray)));
+        for (int i = 0; i < this.stringArraysIn.size(); i++) {
+            System.out.println("Input: " + this.stringArraysIn.get(i));
+            System.out.println("Output: " + this.stringArraysOut.get(i));
         }
     }
 

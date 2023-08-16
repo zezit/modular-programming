@@ -42,9 +42,12 @@ public class Questao12 extends Questao4 {
     }
 
     public void showReadingResult() {
+        System.out.println("__________________________");
+        System.out.println("|  Entradas   |  Saídas   |");
+        System.out.println("__________________________");
         for (int i = 0; i < stringArraysIn.size(); i++) {
-            System.out.println("Linha do arquivo: " + stringArraysIn.get(i));
-            System.out.println("Resultado: " + stringArraysOut.get(i));
+            System.out.printf("| %-10s | %-10s |\n", stringArraysIn.get(i), stringArraysOut.get(i));
         }
+        System.out.println("__________________________");
     }
 }

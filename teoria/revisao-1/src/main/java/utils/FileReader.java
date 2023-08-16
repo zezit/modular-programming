@@ -1,11 +1,9 @@
 package main.java.utils;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class FileReader {
     private BufferedReader entrada;
-    private ArrayList<String> filler;
 
     public FileReader(String nomeArquivo) {
         try {
@@ -37,12 +35,7 @@ public class FileReader {
             System.out.println("Erro de leitura: " + excecao);
             textoEntrada = null;
         } finally {
-            this.filler.add(textoEntrada);
             return textoEntrada;
         }
-    }
-
-    public ArrayList<String> getFiller() {
-        return filler;
     }
 }

@@ -17,9 +17,9 @@ import main.java.questao_11.Questao11;
 import main.java.questao_12.Questao12;
 
 public class App {
-    private static final String QUESTION10_FILE_NAME = "/home/jose/coding/modular-programming/teoria/revisao-1/src/mock/questao10.txt";
-    private static final String QUESTION11_FILE_NAME = "/home/jose/coding/modular-programming/teoria/revisao-1/src/mock/questao11.txt";
-    private static final String QUESTION12_FILE_NAME = "/home/jose/coding/modular-programming/teoria/revisao-1/src/mock/questao12.txt";
+    private static final String QUESTION10_FILE_NAME = "C:\\coding\\modular-programming\\teoria\\revisao-1\\src\\mock\\questao10.txt";
+    private static final String QUESTION11_FILE_NAME = "C:\\coding\\modular-programming\\teoria\\revisao-1\\src\\mock\\questao11.txt";
+    private static final String QUESTION12_FILE_NAME = "C:\\coding\\modular-programming\\teoria\\revisao-1\\src\\mock\\questao12.txt";
 
     private static int CREATED_CLASSES = 12;
 
@@ -257,7 +257,7 @@ public class App {
             case 12:
                 Questao12.enunciado();
                 System.out.println("Lendo o arquivo: " + QUESTION12_FILE_NAME);
-                
+
                 FileReader file12 = new FileReader(QUESTION12_FILE_NAME);
                 Questao12 questao12 = new Questao12(file12);
                 try {

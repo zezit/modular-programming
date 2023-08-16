@@ -51,11 +51,12 @@ public class Questao10 extends Questao2 {
     public void run() throws FileNotFoundException {
         if (this.file != null) {
             String fileLine = this.file.ler();
-            while (fileLine.length() > 0 && fileLine != null) {
+            while (fileLine != null && fileLine.length() > 0) {
                 try {
-                    int[] lineArray = Questao10.convertString(this.file.ler());
-                    intArraysOut.add(lineArray);
+                    int[] lineArray = Questao10.convertString(fileLine);
+                    intArraysOut.add(Questao10.execute(lineArray));
                     stringArraysIn.add(fileLine);
+                    fileLine = this.file.ler();
                 } catch (IllegalArgumentException e) {
                     System.out.println("Invalid input " + e.getMessage() + " on line " + stringArraysIn.size() + ".");
                 }
